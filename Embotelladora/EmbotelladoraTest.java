@@ -2,12 +2,7 @@ package Embotelladora;
 
 import org.junit.*;
 
-import Bisiestos.Bisiestos;
-import Bisiestos.Integer;
-import Bisiestos.NullPointerException;
-import Bisiestos.Test;
-
-import java.security.InvalidParameterException;
+import static org.junit.Assert.assertTrue;
 
 public class EmbotelladoraTest {
 	private int pequenas, grandes, total;   // Entrada 
@@ -22,8 +17,8 @@ public class EmbotelladoraTest {
 	
 	   
 	   /* C1.B1 */
-	   @Test (expected = InvalidParameterException.class)
-	   public void testForNegativeIntInPeq()
+	   @Test (expected = NoSolution.class)
+	   public void testForNegativeIntInPeq() throws NoSolution
 	   {
 		   pequenas = -40;
 		   grandes = 2;
@@ -31,8 +26,8 @@ public class EmbotelladoraTest {
 		   Embotelladora.calculaBotellasPequenas (pequenas, grandes, total);
 	   }
 	   
-	   @Test (expected = InvalidParameterException.class)
-	   public void testForNegativeIntInGran()
+	   @Test (expected = NoSolution.class)
+	   public void testForNegativeIntInGran() throws NoSolution
 	   {
 		   pequenas = 10;
 		   grandes = -2;
@@ -40,8 +35,8 @@ public class EmbotelladoraTest {
 		   Embotelladora.calculaBotellasPequenas (pequenas, grandes, total);
 	   }
 	   
-	   @Test (expected = InvalidParameterException.class)
-	   public void testForNegativeIntInTotal()
+	   @Test (expected = NoSolution.class)
+	   public void testForNegativeIntInTotal() throws NoSolution
 	   {
 		   pequenas = 4;
 		   grandes = 3;
@@ -50,8 +45,8 @@ public class EmbotelladoraTest {
 	   }
 	   
 	   /* C1.B2 */
-	   @Test (expected = InvalidParameterException.class)
-	   public void testForZeroInPeq()
+	   @Test (expected = NoSolution.class)
+	   public void testForZeroInPeq() throws NoSolution
 	   {
 		   pequenas = 0;
 		   grandes = 4;
@@ -60,8 +55,8 @@ public class EmbotelladoraTest {
 	   }
 	   
 	   
-	   @Test (expected = InvalidParameterException.class)
-	   public void testForNegativeIntInTot()
+	   @Test (expected = NoSolution.class)
+	   public void testForNegativeIntInTot() throws NoSolution
 	   {
 		   pequenas = 20;
 		   grandes = 10;
@@ -69,4 +64,13 @@ public class EmbotelladoraTest {
 		   Embotelladora.calculaBotellasPequenas (pequenas, grandes, total);
 	   }
 	   
-}	 
+	   @Test (expected = NoSolution.class)
+	   public void testForError() throws NoSolution
+	   {
+		   pequenas = 2;
+		   grandes = 1;
+		   total = 9;
+		   assertTrue ("additionTest", 2 == Embotelladora.calculaBotellasPequenas (pequenas, grandes, total));
+	   }
+	   
+}	  

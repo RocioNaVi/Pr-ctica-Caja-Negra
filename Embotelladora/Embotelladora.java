@@ -3,24 +3,6 @@ package Embotelladora;
 import java.security.InvalidParameterException;
 
 public class Embotelladora {
-	class NoSolution extends Exception{
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		String msg;
-		
-		NoSolution(String str) {
-			msg = str;
-			
-		}
-		
-		public String toString(){
-			return ("NoSolution: " + msg) ;
-			
-		}
-		
-	}
 	
 	public static int calculaBotellasPequenas(int pequenas, int grandes, int total) throws NoSolution {
 
@@ -30,6 +12,10 @@ public class Embotelladora {
 		int botellas_g;
 		int botellas_p;
 		
+		if (pequenas <= 0 || grandes < 0 || total <= 0)
+	       {
+			throw new NoSolution ("Parámetros inválidos");
+	       }
 		
 		botellas_g = (int) total/Cap_Grande;
 		
@@ -51,7 +37,8 @@ public class Embotelladora {
 				return botellas_p;
 			}
 		}
-		return 0;	
-			
+		
+		throw new NoSolution ("No se puede embotellar todo el líquido");
+	    
 	}
 }
