@@ -1,1 +1,0 @@
-INDEX VERSION 1.131+/home/ainhoa/isi/Pr-ctica-Caja-Negra/Practica_CN/src/.metadata/.plugins/org.eclipse.jdt.core
