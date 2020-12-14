@@ -3,7 +3,8 @@ package NumRomanos;
 import org.junit.*;
 
 import Bisiestos.Bisiestos;
-import junit.framework.Test;
+
+import static org.junit.Assert.assertTrue;
 
 import java.security.InvalidParameterException;
 
@@ -12,26 +13,35 @@ public class NumRomanosTest {
 
 		/* 
 		 * CARACTERIZACIONES:
-		 * C1: La entrada sea diferente de null
-		 * C2: La entrada sea diferente de un string válido
-		 * 		B1: String(ITEGER)
-		 * 		B2: Letra no permitida
-		 * 		B3: BOOLEANString(Letras no permitidas)
-		 * C3: La entrada contenga espacios en blanco
-		 * 		B1: WhiteSpace al comienzo
-		 * 		B2: WhiteSpace entre letras
-		 * 		B3: WhiteSpace al final
-		 * C4: La entrada en mayusculas o minúsculas
-		 * 		B1: Todo en minúsculas
-		 * 		B2: Se alternan mayúsculas y minúsculas
+		 * C1: La entrada sea null
+		 * 		B1: Si lo es (excepción)
+		 * 		B2: No lo es 
+		 * C2: La entrada sea un strig válido (dentro del abc romano)
+		 * 		B1: Sí lo es
+		 * 		B2: No lo es (numeros o letras no válidas)
+		 * C3: La entrada sea un número romano
+		 * 		B1: Si lo es
+		 * 		B2: No lo es (Comprobar minusculas y restas)
+		 * C4: La entrada tiene espacios en blanco
+		 * 		B1: Sí los tiene
+		 * 		B2: No los tiene
 		 */
 	
-	   /* C1 */
+	   /* C1.B1 */
 	   @Test (expected = NullPointerException.class)
 	   public void testForNullElement()
 	   {
 	      s = null;
 	      NumRomanos.convierte (s);
+	   }
+	   
+	   /* C1.B2 */
+	   @Test 
+	   public void testForNotNullElement()
+	   {
+	      s = "XX";
+	      assertTrue ("C1.B2", 20 == NumRomanos.convierte (s));
+	      
 	   }
 	   
 	   /* C2.B1 */
@@ -42,7 +52,7 @@ public class NumRomanosTest {
 		   NumRomanos.convierte (s);
 	   }
 	   
-	   /* C2.B2 */
+	   /* C2.B1 */
 	   @Test (expected = InvalidParameterException.class)
 	   public void testForInvalidCharIn()
 	   {
@@ -50,7 +60,7 @@ public class NumRomanosTest {
 		   NumRomanos.convierte (s);
 	   }
 	   
-	   /* C2.B3 */
+	   /* C2.B1 */
 	   @Test (expected = InvalidParameterException.class)
 	   public void testForInvalidStringIn()
 	   {
@@ -58,43 +68,75 @@ public class NumRomanosTest {
 		   NumRomanos.convierte (s);
 	   }
 	   
+	   /* C2.B2 */
+	   @Test 
+	   public void testForValidStringIn()
+	   {
+		   s = "XVX";
+		   assertTrue ("C2.B2", 15 == NumRomanos.convierte (s));
+	   }
+	   
 	   /* C3.B1 */
 	   @Test
-	   public void testForWhiteCharStartIn()
+	   public void testForValidIn()
 	   {
-		   s = "   CMXC";
-		   NumRomanos.convierte (s);
+		   s = "CM";
+		   assertTrue ("C3.B1", 900 == NumRomanos.convierte (s));
 	   }
 	   
 	   /* C3.B2 */
 	   @Test
-	   public void testForWhiteCharIn()
+	   public void testForCapitalLetterIn()
 	   {
-		   s = "CM X  C";
-		   NumRomanos.convierte (s);
+		   s = "cM";
+		   assertTrue ("C3.B2", 900 == NumRomanos.convierte (s));
 	   }
 	   
-	   /* C3.B3 */
+	   /* C3.B2 */
 	   @Test
-	   public void testForWhiteCharEndIn()
+	   public void testForCapitalLetterIn2()
 	   {
-		   s = "CMXC   ";
-		   NumRomanos.convierte (s);
+		   s = "cm";
+		   assertTrue ("C3.B2", 900 == NumRomanos.convierte (s));
+	   }
+	   
+	   /* C3.B2 */
+	   @Test
+	   public void testForResta()
+	   {
+		   s = "MC";
+		   assertTrue ("C3.B2", 900 == NumRomanos.convierte (s));
 	   }
 	   
 	   /* C4.B1 */
 	   @Test
-	   public void testForNoCapitalLetterIn()
+	   public void testForWhiteCharStartIn()
 	   {
-		   s = "cm";
-		   NumRomanos.convierte (s);
+		   s = "   CMXC";
+		   assertTrue ("C4.B1", 990 == NumRomanos.convierte (s));
+	   }
+	   
+	   /* C4.B1 */
+	   @Test
+	   public void testForWhiteCharIn()
+	   {
+		   s = "CM X  C";
+		   assertTrue ("C4.B1", 990 == NumRomanos.convierte (s));
+	   }
+	   
+	   /* C4.B1 */
+	   @Test
+	   public void testForWhiteCharEndIn()
+	   {
+		   s = "CMXC   ";
+		   assertTrue ("C4.B1", 990 == NumRomanos.convierte (s));
 	   }
 	   
 	   /* C4.B2 */
-	   @Test
-	   public void testForCapitalLetterIn()
+	   @Test 
+	   public void testForNoWhiteCharIn()
 	   {
-		   s = "cM";
-		   NumRomanos.convierte (s);
+		   s = "XVX";
+		   assertTrue ("C4.B2", 15 == NumRomanos.convierte (s));
 	   }
 }
