@@ -9,8 +9,8 @@ import static org.junit.Assert.assertTrue;
 import java.security.InvalidParameterException;
 
 public class NumRomanosTest {
-	private String s;   // Entrada 
-
+	public String s;   // Entrada 
+	NumRomanos number = new NumRomanos();
 		/* 
 		 * CARACTERIZACIONES:
 		 * C1: La entrada sea null
@@ -32,7 +32,7 @@ public class NumRomanosTest {
 	   public void testForNullElement()
 	   {
 	      s = null;
-	      NumRomanos.convierte (s);
+	      number.convierte (s);
 	   }
 	   
 	   /* C1.B2 */
@@ -40,7 +40,7 @@ public class NumRomanosTest {
 	   public void testForNotNullElement()
 	   {
 	      s = "XX";
-	      assertTrue ("C1.B2", 20 == NumRomanos.convierte (s));
+	      assertTrue ("C1.B2", 20 == number.convierte (s));
 	      
 	   }
 	   
@@ -49,7 +49,7 @@ public class NumRomanosTest {
 	   public void testForIntIn()
 	   {
 		   s = "123";
-		   NumRomanos.convierte (s);
+		   number.convierte (s);
 	   }
 	   
 	   /* C2.B1 */
@@ -57,7 +57,7 @@ public class NumRomanosTest {
 	   public void testForInvalidCharIn()
 	   {
 		   s = "e";
-		   NumRomanos.convierte (s);
+		   number.convierte (s);
 	   }
 	   
 	   /* C2.B1 */
@@ -65,7 +65,7 @@ public class NumRomanosTest {
 	   public void testForInvalidStringIn()
 	   {
 		   s = "eyWz";
-		   NumRomanos.convierte (s);
+		   number.convierte (s);
 	   }
 	   
 	   /* C2.B2 */
@@ -73,7 +73,7 @@ public class NumRomanosTest {
 	   public void testForValidStringIn()
 	   {
 		   s = "XVX";
-		   assertTrue ("C2.B2", 15 == NumRomanos.convierte (s));
+		   assertTrue ("C2.B2", 15 == number.convierte (s));
 	   }
 	   
 	   /* C3.B1 */
@@ -81,7 +81,7 @@ public class NumRomanosTest {
 	   public void testForValidIn()
 	   {
 		   s = "CM";
-		   assertTrue ("C3.B1", 900 == NumRomanos.convierte (s));
+		   assertTrue ("C3.B1", 900 == number.convierte (s));
 	   }
 	   
 	   /* C3.B2 */
@@ -89,7 +89,7 @@ public class NumRomanosTest {
 	   public void testForCapitalLetterIn()
 	   {
 		   s = "cM";
-		   assertTrue ("C3.B2", 900 == NumRomanos.convierte (s));
+		   assertTrue ("C3.B2", 900 == number.convierte (s));
 	   }
 	   
 	   /* C3.B2 */
@@ -97,7 +97,7 @@ public class NumRomanosTest {
 	   public void testForCapitalLetterIn2()
 	   {
 		   s = "cm";
-		   assertTrue ("C3.B2", 900 == NumRomanos.convierte (s));
+		   assertTrue ("C3.B2", 900 == number.convierte (s));
 	   }
 	   
 	   /* C3.B2 */
@@ -105,7 +105,7 @@ public class NumRomanosTest {
 	   public void testForResta()
 	   {
 		   s = "MC";
-		   assertTrue ("C3.B2", 900 == NumRomanos.convierte (s));
+		   assertTrue ("C3.B2", 900 == number.convierte (s));
 	   }
 	   
 	   /* C4.B1 */
@@ -113,7 +113,7 @@ public class NumRomanosTest {
 	   public void testForWhiteCharStartIn()
 	   {
 		   s = "   CMXC";
-		   assertTrue ("C4.B1", 990 == NumRomanos.convierte (s));
+		   assertTrue ("C4.B1", 990 == number.convierte (s));
 	   }
 	   
 	   /* C4.B1 */
@@ -121,7 +121,7 @@ public class NumRomanosTest {
 	   public void testForWhiteCharIn()
 	   {
 		   s = "CM X  C";
-		   assertTrue ("C4.B1", 990 == NumRomanos.convierte (s));
+		   assertTrue ("C4.B1", 990 == number.convierte (s));
 	   }
 	   
 	   /* C4.B1 */
@@ -129,7 +129,7 @@ public class NumRomanosTest {
 	   public void testForWhiteCharEndIn()
 	   {
 		   s = "CMXC   ";
-		   assertTrue ("C4.B1", 990 == NumRomanos.convierte (s));
+		   assertTrue ("C4.B1", 990 == number.convierte (s));
 	   }
 	   
 	   /* C4.B2 */
@@ -137,6 +137,6 @@ public class NumRomanosTest {
 	   public void testForNoWhiteCharIn()
 	   {
 		   s = "XVX";
-		   assertTrue ("C4.B2", 15 == NumRomanos.convierte (s));
+		   assertTrue ("C4.B2", 15 == number.convierte (s));
 	   }
 }

@@ -14,6 +14,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class NumRomanosTest2 {
     public String s;
     public int result;
+	NumRomanos number = new NumRomanos();
 
     public NumRomanosTest2 (String s, int result)
     {
@@ -24,7 +25,7 @@ public class NumRomanosTest2 {
    @Parameters
    public static Collection<Object[]> contarValues()
    {
-       return Arrays.asList (new Object [][] {{"V", 5}, {"CM", 900}, {"EE", 56}, {"CMXCIX", 999}, {" V", 5}}); 
+       return Arrays.asList (new Object [][] {{"V", 5}, {"CM", 900}, {"EE", 56}, {"CMXC", 990}, {" V", 5}}); 
    }
 
    /* Estos tests comprueban que cumple con los requisitos
@@ -33,6 +34,7 @@ public class NumRomanosTest2 {
    @Test
    public void additionTest()
    {
-	   assertTrue ("Addition Test", result == NumRomanos.convierte (s));
+	   assertTrue ("Addition Test", result == number.convierte (s));
    }
 }
+
