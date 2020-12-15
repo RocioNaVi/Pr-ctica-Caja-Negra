@@ -4,7 +4,7 @@ import java.security.InvalidParameterException;
 
 public class Embotelladora {
 	
-	public static int calculaBotellasPequenas(int pequenas, int grandes, int total) throws NoSolution {
+	public int calculaBotellasPequenas(int pequenas, int grandes, int total) throws NoSolution {
 
 		int Cap_Grande = 5;
 		int Cap_Pequeña = 1;

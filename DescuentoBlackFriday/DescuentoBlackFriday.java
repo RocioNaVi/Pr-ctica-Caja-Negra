@@ -9,7 +9,7 @@ public class DescuentoBlackFriday {
 	//         un descuento de porcentajeDescuento
 	// @throws IllegalArgumentException si precioOriginal es negativo
 	
-	public static double precioFinal(double precioOriginal, double porcentajeDescuento) throws IllegalArgumentException{
+	public double precioFinal(double precioOriginal, double porcentajeDescuento) throws IllegalArgumentException{
 		
 		double precioFinal;
 
