@@ -4,9 +4,12 @@ import org.junit.*;
 
 import static org.junit.Assert.assertTrue;
 import java.lang.IllegalArgumentException;
+import java.util.ArrayList;
 
 public class Bisiestos_Test {
 	private int a;   // Entrada 
+	Bisiestos b = new Bisiestos();
+	   
 
 		/* 
 		 * CARACTERIZACIONES:
@@ -36,7 +39,7 @@ public class Bisiestos_Test {
 	   public void testForPositiveIn()
 	   {
 		   a = 20;
-		   assertTrue ("C1.B1", true == Bisiestos.esBisiesto (a));
+		   assertTrue ("C1.B1", true == b.esBisiesto (a));
 	   }
 	   
 	   /* C1.B1 */
@@ -44,7 +47,7 @@ public class Bisiestos_Test {
 	   public void testForPositiveIn2()
 	   {
 		   a = 1;
-		   assertTrue ("C1.B1 2", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C1.B1 2", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C1.B2 */
@@ -52,7 +55,7 @@ public class Bisiestos_Test {
 	   public void testForNegativeIn()
 	   {
 		   a = -20;
-		   Bisiestos.esBisiesto (a);
+		   b.esBisiesto (a);
 	   }
 	   
 	   /* C1.B3 */
@@ -60,7 +63,7 @@ public class Bisiestos_Test {
 	   public void testForZeroIn()
 	   {
 		   a = 0;
-		   assertTrue ("C1.B3", true == Bisiestos.esBisiesto (a));
+		   assertTrue ("C1.B3", true == b.esBisiesto (a));
 	   }
 	   
 	   /* C2.B1 */
@@ -68,7 +71,7 @@ public class Bisiestos_Test {
 	   public void testForMult4In()
 	   {
 		   a = 4;
-		   assertTrue ("C2.B1", true == Bisiestos.esBisiesto (a));
+		   assertTrue ("C2.B1", true == b.esBisiesto (a));
 	   }
 	   
 	   /* C2.B2 */
@@ -76,7 +79,7 @@ public class Bisiestos_Test {
 	   public void testForNoMult4In()
 	   {
 		   a = 6;
-		   assertTrue ("C2.B2", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C2.B2", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C3.B1 */
@@ -84,7 +87,7 @@ public class Bisiestos_Test {
 	   public void testForMult100In()
 	   {
 		   a = 200;
-		   assertTrue ("C3.B1", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C3.B1", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C3.B2 */
@@ -92,7 +95,7 @@ public class Bisiestos_Test {
 	   public void testForNoMult100In()
 	   {
 		   a = 214;
-		   assertTrue ("C3.B2", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C3.B2", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C4.B1 */
@@ -100,7 +103,7 @@ public class Bisiestos_Test {
 	   public void testForMult400In()
 	   {
 		   a = 800;
-		   assertTrue ("C4.B1", true == Bisiestos.esBisiesto (a));
+		   assertTrue ("C4.B1", true == b.esBisiesto (a));
 	   }
 	   
 	   /* C4.B2 */
@@ -108,7 +111,7 @@ public class Bisiestos_Test {
 	   public void testForNoMult400In()
 	   {
 		   a = 100;
-		   assertTrue ("C4.B2", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C4.B2", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C5.B1 */
@@ -116,7 +119,7 @@ public class Bisiestos_Test {
 	   public void testForMult4No100In()
 	   {
 		   a = 176;
-		   assertTrue ("C5.B1", true == Bisiestos.esBisiesto (a));
+		   assertTrue ("C5.B1", true == b.esBisiesto (a));
 	   }
 	   
 	   /* C5.B2 */
@@ -124,7 +127,7 @@ public class Bisiestos_Test {
 	   public void testForMult4y100In()
 	   {
 		   a = 3100;
-		   assertTrue ("C5.B2", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C5.B2", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C6.B1 */
@@ -132,7 +135,7 @@ public class Bisiestos_Test {
 	   public void testForMult4y100No400In()
 	   {
 		   a = 2200;
-		   assertTrue ("C6.B1", false == Bisiestos.esBisiesto (a));
+		   assertTrue ("C6.B1", false == b.esBisiesto (a));
 	   }
 	   
 	   /* C6.B2 */
@@ -141,6 +144,6 @@ public class Bisiestos_Test {
 	   {
 		   a = 1360;
 		   assertTrue ("C6.B2"
-		   		+ "", true == Bisiestos.esBisiesto (a));
+		   		+ "", true == b.esBisiesto (a));
 	   }  
-} 
+}

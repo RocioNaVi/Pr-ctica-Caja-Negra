@@ -11,16 +11,19 @@ import java.util.*;
 @RunWith (Parameterized.class)
 public class BisiestosTest2 {
     public int a;
+    public boolean result;
+    Bisiestos b = new Bisiestos();
 
-    public BisiestosTest2 (int a)
+    public BisiestosTest2 (int a, boolean result)
     {
        this.a = a;
+       this.result = result;
     }
 
    @Parameters
    public static Collection<Object[]> contarValues()
    {
-       return Arrays.asList (new Object [][] {{-1}, {2}, {0}, {2000}, {2200}, {1900}}); 
+       return Arrays.asList (new Object [][] {{-1, false}, {2, false}, {0, true}, {2000, true}, {2200, false}, {1900, false}}); 
    }
 
    /* Estos tests comprueban que cumple con los requisitos
@@ -29,6 +32,7 @@ public class BisiestosTest2 {
    @Test
    public void additionTest()
    {
-	   assertTrue ("Addition Test", true == Bisiestos.esBisiesto (a));
+	   assertTrue ("additionTest", result == b.esBisiesto (a));
    }
 }
+
