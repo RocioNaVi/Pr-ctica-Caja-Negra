@@ -1,0 +1,90 @@
+https://github.com/RocioNaVi/Pr-ctica-Caja-Negra
+Cálculo de años bisiestos:
+Se ha realizado primero los test de inicializar las variables.
+/* 
+ 		* C1: La entrada es un número positivo
+		 * 		B1: Sí lo es
+		 * 		B2: No es positivo
+		 * 		B3: Caso frontera -> 0
+		 * C2: Entrada múltiple de 4
+		 * 		B1: Sí lo es
+		 * 		B2: No lo es
+		 * C3: Entrada múltiple de 100
+		 * 		B1: Sí lo es
+		 * 		B2: No lo es
+		 * C4: Entrada múltiple de 100
+		 * 		B1: Sí lo es
+		 * 		B2: No lo es
+		 * C5: Entrada múltiple de 4 y no de 100
+		 * 		B1: Sí lo es
+		 * 		B2: No lo es (Es multiplo de 4 y de 100)
+		 * C6: Entrada múltiple de 4 y de 100 y no de 400
+		 * 		B1: Sí lo es
+		 * 		B2: No lo es
+*/		 
+En primer lugar vemos si el numero es positivo o no, después se ha realizado el bloque de funcionalidad dividido en si es multiplo o no.
+Al realizar los test ha ayudado a corregir nuestro código SUT porque cuando era negativo no lanzaba la excepción.
+
+Después se han propuesto varios ejemplos en BisiestosTest2 donde se comprueban los requisitos con múltiples entradas.
+
+Conversión de números romanos a base 10.
+
+/* 
+	 * CARACTERIZACIONES:
+	 * C1: La entrada sea null
+	 * 		B1: Si lo es (excepción)
+	 * 		B2: No lo es 
+	 * C2: La entrada sea un strig válido (dentro del abc romano)
+	 * 		B1: Sí lo es
+	 * 		B2: No lo es (numeros o letras no válidas)
+	 * C3: La entrada sea un número romano
+	 * 		B1: Si lo es
+	 * 		B2: No lo es (Comprobar minusculas y restas)
+	 * C4: La entrada tiene espacios en blanco
+	 * 		B1: Sí los tiene
+	 * 		B2: No los tiene
+*/
+Se comprueban las distintas entradas parar los distintos parametros, siendo null, no sean letras romanas o tengan espacios.
+Después se comprueba si se resta bien o no.
+
+En este caso, nos dimos cuenta en el test C3.B2 que no restaba mal y se modificó.
+
+También se comprobó diferentes pruebas en NumRomanosTest2.
+
+Embotelladora:
+
+	/* 
+	 * CARACTERIZACIONES:
+	 * C1: La entrada no sea un número positivo
+	 * 		B1: botellas pequeñas Negativas
+	 * 		B2: Caso frontera Botella pequeñas = 0
+	 * 		B3: botellas grandes Negativas
+	 * 		B4: Caso frontera botella grandes = 0
+	 * 		B5: total negativo
+	 * 		B6: total cero
+	 * C2: Funcionalidad
+	 * 		B1: Funcionalidad normal
+	 * 		B2: No solución
+	 * 		B3: 
+	 */
+	 
+Se realizan test para cada una de las variables negativas o para el caso de que no haya botellas suficietnes para el líquido.  Se comprueba también un funcionamiento normal en EmbotelladoraTest2
+
+Descuento BlackFriday
+
+	/* 
+	 * CARACTERIZACIONES:
+	 * C1: 	La entrada sea diferente de un int válido
+	 * 		B1: Precio original negativo
+	 * 		B2: Precio original  = cero
+	 * 		B3: Descuento negativo
+	 * 		B4: Descuento = cero
+	 * C2: Fecha
+	 * 		B1: Fecha válida
+	 * 		B2: Fecha no válida por mes
+	 * 		B3. Fecha no válida por día
+	 */
+	 
+se comprueba que ocurre con cada unas de las variables en el caso frontera, y caso negativo, También de la misma forma se analiza el caso en que la fecha sea válida, o no lo sea debido al mes o el dia. También se realizan test para comprobar el funcionamiento correcto de la misma.
+
+
