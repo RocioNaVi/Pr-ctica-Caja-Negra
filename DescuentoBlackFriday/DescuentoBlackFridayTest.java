@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class DescuentoBlackFridayTest {
 	private double precioOriginal, porcentajeDescuento;   // Entrada 
-	private Calendar date;
+	private Calendar date = Calendar.getInstance();
 	DescuentoBlackFriday descuento = new DescuentoBlackFriday();
 	/* 
 	 * CARACTERIZACIONES:
@@ -20,7 +20,7 @@ public class DescuentoBlackFridayTest {
 	 * C2: Fecha
 	 * 		B1: Fecha válida
 	 * 		B2: Fecha no válida por mes
-	 * 		B2. Fecha no válida por mes
+	 * 		B3: Fecha no válida por dia
 	 */
 	
 	  /* C1.B1 */
@@ -38,7 +38,7 @@ public class DescuentoBlackFridayTest {
 	  {
 		  date.set(2020, 11,29); 
 		  precioOriginal = 0;
-		  porcentajeDescuento = -20;
+		  porcentajeDescuento = 20;
 		  assertTrue ("C1.B2", 0 ==  descuento.precioFinal (precioOriginal, porcentajeDescuento, date));
 	  }
 	  
@@ -66,7 +66,7 @@ public class DescuentoBlackFridayTest {
 	  @Test 
 	  public void testForFechaValida()
 	  {
-		  date.set(2020, 11,29); 
+		  date.set(2020,11,29); 
 		  precioOriginal = 20;
 		  porcentajeDescuento = 10;
 		  assertTrue ("C2.B1", 18 ==  descuento.precioFinal (precioOriginal, porcentajeDescuento, date));

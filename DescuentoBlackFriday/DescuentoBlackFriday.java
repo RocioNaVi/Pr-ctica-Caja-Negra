@@ -1,9 +1,7 @@
 package DescuentoBlackFriday;
 
 import java.lang.IllegalArgumentException;	
-import java.util.Date;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class DescuentoBlackFriday {
 	// @param  precioOriginal es el precio de un producto marcado en la etiqueta
@@ -32,7 +30,6 @@ public class DescuentoBlackFriday {
 		}
 		
 		return precioOriginal;
-		
 		
 	}
 }

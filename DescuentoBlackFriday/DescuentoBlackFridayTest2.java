@@ -1,7 +1,5 @@
 package DescuentoBlackFriday;
 
-package DescuentoBlackFriday;
-
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -19,8 +17,9 @@ import Embotelladora.NoSolution;
 public class DescuentoBlackFridayTest2 {
 	private double precioOriginal, porcentajeDescuento;   // Entrada 
 	private double total; //Salida
-	private static Calendar date_1, date_2;
-	private Calendar date;
+	private static Calendar date_1 = Calendar.getInstance();
+	private static Calendar date_2 = Calendar.getInstance();
+	private Calendar date = Calendar.getInstance();
 	
 	DescuentoBlackFriday descuento = new DescuentoBlackFriday();
 	public DescuentoBlackFridayTest2(double precioOri, double porcentaje, Calendar date, double tot){
@@ -30,13 +29,15 @@ public class DescuentoBlackFridayTest2 {
 		this.total = tot;
 	}
 
-	@Parameters public static Collection<Object[]> contarbotellas(){
+	@Parameters 
+	public static Collection<Object[]> contarbotellas(){
 		date_2.set(2020, 10,10);
 		date_1.set(2020, 11,29); 
-		return Arrays.asList (new Object[][]{{100,5,date_1,95},{50,1,date_1,49.5},{40,10,date_2,40},{400,10,date_2, 400},{92.50,50,date_1, 41.25},{12,2,date_1, 11.76}});
+		return Arrays.asList (new Object[][]{{100,5,date_1,95},{50,1,date_1,49.5},{40,10,date_2,40},{400,10,date_2,400},{92.50,50,date_1, 46.25},{12,2,date_1, 11.76}});
 	}
 	
-	@Test public void Botellas_Peq_Test() throws NoSolution
+	@Test 
+	public void DescuentoBlackFriday() throws NoSolution
 	{
 		assertTrue ("calculaDescuento", total ==  descuento.precioFinal (precioOriginal, porcentajeDescuento, date));
 	}
