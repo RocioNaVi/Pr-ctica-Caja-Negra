@@ -21,7 +21,6 @@ public class NumRomanos {
 		return numerosRomanos;	//Hashtable lleno
 	}
 	
-	
 	// @param s es un número romano
 	// @return el número s en base 10
 	// @throws InvalidParameter si s no es un número romano
@@ -40,9 +39,8 @@ public class NumRomanos {
 				numero = numero + valor;
 				if(ant<valor){
 					numero = numero - ant*2;
-				}else {
-					ant = valor;
 				}
+				ant = valor;
 			}else{
 				throw new InvalidParameterException("No es un número romano");
 			}
@@ -50,3 +48,4 @@ public class NumRomanos {
 		return numero;
 	}
 }
+
