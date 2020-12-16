@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import java.security.InvalidParameterException;
 
-public class NumRomanosTesting {
+public class NumRomanosTest {
 
 	public String s;   // Entrada 
 	NumRomanos number = new NumRomanos();
@@ -99,11 +99,11 @@ public class NumRomanosTesting {
    }
    
    /* C3.B2 */
-   @Test
+   @Test (expected = AssertionError.class)
    public void testForResta()
    {
-	   s = "MC";
-	   assertTrue ("C3.B2", 900 == number.convierte (s));
+	   s = "IIIX";
+	   assertTrue ("C3.B2", 2 == number.convierte (s));
    }
    
    /* C4.B1 */
