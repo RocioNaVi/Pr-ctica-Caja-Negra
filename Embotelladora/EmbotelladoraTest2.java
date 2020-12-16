@@ -1,38 +1,36 @@
-package NumRomanos;
+package Embotelladora;
 
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
-
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith (Parameterized.class)
-public class NumRomanosTest2 {
-    public String s;
-    public int result;
+public class EmbotelladoraTest2 {
+	private int pequenas, grandes, total; 
+	private int total_peq;
+	Embotelladora botellas = new Embotelladora();
 
-    public NumRomanosTest2 (String s, int result)
-    {
-       this.s = s;
-       this.result = result;
-    }
-
-   @Parameters
-   public static Collection<Object[]> contarValues()
-   {
-       return Arrays.asList (new Object [][] {{"V", 5}, {"CM", 900}, {"EE", 56}, {"CMXCIX", 999}, {" V", 5}}); 
-   }
-
-   /* Estos tests comprueban que cumple con los requisitos
-    * con múltiples entradas diferentes
-    */
-   @Test
-   public void additionTest()
-   {
-	   assertTrue ("Addition Test", result == NumRomanos.convierte (s));
-   }
+	public EmbotelladoraTest2(int peque, int grand, int tot, int expected) {
+		this.pequenas = peque;
+		this.grandes = grand;
+		this.total = tot;
+		this.total_peq = expected;
+	}
+	
+	
+	@Parameters public static Collection<Object[]> contarbotellas(){
+		return Arrays.asList (new Object[][]{{6,1,5,0},{5,2,13,3},{1,1,1,1},{4,10,19,4},{19,50,101,1},{12,2,21,11}});
+	}
+	
+	@Test public void Botellas_Peq_Test() throws NoSolution
+	{
+		assertTrue("calculaBotellasPequenas", total_peq == botellas.calculaBotellasPequenas(pequenas, grandes, total));
+	}
 }
+
+
