@@ -1,6 +1,7 @@
 package DescuentoBlackFriday;
 
-import java.lang.IllegalArgumentException;
+import java.lang.IllegalArgumentException;	
+import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -11,16 +12,13 @@ public class DescuentoBlackFriday {
 	//         un descuento de porcentajeDescuento
 	// @throws IllegalArgumentException si precioOriginal es negativo
 	
-	public double precioFinal(double precioOriginal, double porcentajeDescuento) throws IllegalArgumentException{
+	public double precioFinal(double precioOriginal, double porcentajeDescuento, Calendar fecha) throws IllegalArgumentException{
 		
 		double precioFinal;
+		int dia = 29;
+		int mes = 11; 
 		
-		
-		Calendar fecha = new GregorianCalendar();
-	    int mes = fecha.get(Calendar.MONTH);
-		int dia = fecha.get(Calendar.DAY_OF_MONTH);
-
-		if (dia == 29 && mes == 11) 
+		if (fecha.get(Calendar.DATE) == dia && fecha.get(Calendar.MONTH) == mes) 
 		{
 			if (porcentajeDescuento < 0 || precioOriginal < 0)
 		       {
@@ -33,6 +31,8 @@ public class DescuentoBlackFriday {
 			return precioFinal;
 		}
 		
-		return precioOriginal;	
+		return precioOriginal;
+		
+		
 	}
 }
