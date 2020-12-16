@@ -23,7 +23,7 @@ public class BisiestosTest2 {
    @Parameters
    public static Collection<Object[]> contarValues()
    {
-       return Arrays.asList (new Object [][] {{-1, false}, {2, false}, {0, true}, {2000, true}, {2200, false}, {1900, false}}); 
+       return Arrays.asList (new Object [][] {{2, false}, {0, true}, {2000, true}, {2200, false}, {1900, false}}); 
    }
 
    /* Estos tests comprueban que cumple con los requisitos
