@@ -1,6 +1,9 @@
-https://github.com/RocioNaVi/Pr-ctica-Caja-Negra
-Cálculo de años bisiestos:
-Se ha realizado primero los test de inicializar las variables.
+Práctica Caja Negra
+Alumnas: Ainhoa Hernández Sánchez Y Rocío Navarro Villarino
+Repo : Https://Github.Com/Rocionavi/Pr-Ctica-Caja-Negra
+
+Ejercicio 1: Bisiestos:
+Caracterización de los test según la funcionalidad:
 /* 
  		* C1: La entrada es un número positivo
 		 * 		B1: Sí lo es
@@ -21,13 +24,44 @@ Se ha realizado primero los test de inicializar las variables.
 		 * C6: Entrada múltiple de 4 y de 100 y no de 400
 		 * 		B1: Sí lo es
 		 * 		B2: No lo es
-*/		 
-En primer lugar vemos si el numero es positivo o no, después se ha realizado el bloque de funcionalidad dividido en si es multiplo o no.
-Al realizar los test ha ayudado a corregir nuestro código SUT porque cuando era negativo no lanzaba la excepción.
+*/
+	
+Ejemplos para cada caracterización y bloque:
+Los años bisiestos son cuando son múltiplos de 4 y (no son multiples entre 100 o son multiplos de 400).
+Por ello la caracterización principal será la multiplicidad.
 
-Después se han propuesto varios ejemplos en BisiestosTest2 donde se comprueban los requisitos con múltiples entradas.
+C1: Comprobamos si la entrada es un número positivo. 
+	 B1: año = 20 -> Es Bisiesto
+	 B1.2: año = 1 -> No es Bisiesto (Hemos compobado el 1, porque también podría ser un caso frontera)
+	 B2: año = -20 -> Salta la excepción IllegalArgumentException
+	 B3: año = 0 -> Es Bisiesto
+	 
+C2: Comprobamos que la entrada es un multiplo de 4.
+	B1: año = 4 -> Es Bisiesto.
+	B2: año = 6 -> No es Bisiesto.
+	
+C3: Comprobamos que la entrada es un multiplo de 100.
+	B1: año = 800 -> Es Bisiesto. {Los múltiplos de 100 no son Bisiestos}
+	B2: año = 100 -> No es Bisiesto {No es múltiplo de 4 ni de 100}
+	
+C4: Comprobamos que la entrada es un multiplo de 400.
+	B1: año = 200 -> No es Bisiesto. 
+	B2: año = 214 -> No es Bisiesto.
+	
+Combinación de caracterizaciones:
 
-Conversión de números romanos a base 10.
+C5: Comprobamos que la entrada es un multiplo de 4 y no de 100.
+	B1: año = 176 -> Es Bisiesto. 
+	B2: año = 3100 -> No es Bisiesto. {Es múltiplo de 4 y de 100}
+
+C6:  Comprobamos que la entrada es un multiplo de 4 y de 100 y no de 400.
+	B1: año = 2200 -> No es Bisiesto. 
+	B2: año = 1360 -> Es Bisiesto. {Es múltiplo de 4 y no de 100 ni 400}
+
+En test2 se realizan comprobaciones con diferentes valores, para comprobar la crrecta funcionalidad del código.
+
+
+Ejercicio2: Conversión de números romanos a base 10.
 
 /* 
 	 * CARACTERIZACIONES:
@@ -35,8 +69,8 @@ Conversión de números romanos a base 10.
 	 * 		B1: Si lo es (excepción)
 	 * 		B2: No lo es 
 	 * C2: La entrada sea un strig válido (dentro del abc romano)
-	 * 		B1: Sí lo es
-	 * 		B2: No lo es (numeros o letras no válidas)
+	 * 		B1: No lo es (numeros o letras no válidas)
+	 * 		B2: Sí lo es
 	 * C3: La entrada sea un número romano
 	 * 		B1: Si lo es
 	 * 		B2: No lo es (Comprobar minusculas y restas)
@@ -44,14 +78,38 @@ Conversión de números romanos a base 10.
 	 * 		B1: Sí los tiene
 	 * 		B2: No los tiene
 */
-Se comprueban las distintas entradas parar los distintos parametros, siendo null, no sean letras romanas o tengan espacios.
-Después se comprueba si se resta bien o no.
+	
+Ejemplos para cada caracterización y bloque:
+La entrada en este caso es un string, por tanto, podremos comprobar si la entrada corresponde a un string (o no).
+Otra caracterización será si el string es un número romano válido (por ejmplo que sus char pertenezcan al alfabeto romano).
 
-En este caso, nos dimos cuenta en el test C3.B2 que no restaba mal y se modificó.
+C1: Comprobamos si la entrada es null. 
+	B1: string = null -> Salta la excepción NullPointerException.
+	B2: string = "XX" -> 20
+	 
+C2: Comprobamos que la entrada es un strig válido
+	B1: string = "123" -> Salta la excepción InvalidParameterException. Porque 123 no está en el alfabeto romano.
+	B1.2: string = "e" -> Salta la excepción InvalidParameterException. Porque e no está en el alfabeto romano.
+	B1.3: string = "eyWz" -> Salta la excepción InvalidParameterException. Porque eyWz no está en el alfabeto romano.
+	B2: string = "XV" -> 15
+	
+C3: Comprobamos que la entrada es un número romano
+	B1: string = "CM" -> 900 .
+	B1.2: string = "cM" ->  900 .Comprobamos que no importa si está en minúsculas o mayúsculas
+	B1.3: string = "cm" -> 900.
+	B2: string = "IIIX" -> Slata excepción AssertionError. Aunque son letras que pertencen al alfabeto romano, no es un número correcto, porque no se resta de esta froma.
+		El número que queríamos conseguir era "VII".
+	
+C4: Comprobamos que la entrada tiene espacios en blanco.
+	B1: string = "   CMXC" -> 990.
+	B1.2: string = "CM X  C" ->  990.
+	B1.3: string = "CMXC   " -> 990.
+	B2: string = "VX" -> 15.
+	
+En test2 se realizan comprobaciones con diferentes valores, para comprobar la crrecta funcionalidad del código.
+	
 
-También se comprobó diferentes pruebas en NumRomanosTest2.
-
-Embotelladora:
+Ejercicio 3: Embotelladora:
 
 	/* 
 	 * CARACTERIZACIONES:
@@ -70,7 +128,7 @@ Embotelladora:
 	 
 Se realizan test para cada una de las variables negativas o para el caso de que no haya botellas suficietnes para el líquido.  Se comprueba también un funcionamiento normal en EmbotelladoraTest2
 
-Descuento BlackFriday
+Ejercicio 4: Descuento BlackFriday
 
 	/* 
 	 * CARACTERIZACIONES:
