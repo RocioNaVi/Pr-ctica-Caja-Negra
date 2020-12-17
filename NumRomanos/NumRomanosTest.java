@@ -15,8 +15,8 @@ public class NumRomanosTest {
 	 * 		B1: Si lo es (excepción)
 	 * 		B2: No lo es 
 	 * C2: La entrada sea un strig válido (dentro del abc romano)
-	 * 		B1: Sí lo es
-	 * 		B2: No lo es (numeros o letras no válidas)
+	 * 		B1: No lo es (numeros o letras no válidas)
+	 * 		B2: Sí lo es
 	 * C3: La entrada sea un número romano
 	 * 		B1: Si lo es
 	 * 		B2: No lo es (Comprobar minusculas y restas)
@@ -135,7 +135,7 @@ public class NumRomanosTest {
    @Test 
    public void testForNoWhiteCharIn()
    {
-	   s = "XVX";
+	   s = "VX";
 	   assertTrue ("C4.B2", 15 == number.convierte (s));
    }
 }
