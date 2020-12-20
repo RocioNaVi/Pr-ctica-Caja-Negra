@@ -35,13 +35,13 @@ public class EmbotelladoraTest {
 	   }
 	   
 	   /* C1.B2 */
-	   @Test (expected = NoSolution.class)
+	   @Test 
 	   public void testForZeroInPeq() throws NoSolution
 	   {
 		   pequenas = 0;
 		   grandes = 4;
 		   total = 20;
-		   botellas.calculaBotellasPequenas (pequenas, grandes, total);
+		   assertTrue ("C1.B2", 0 ==  botellas.calculaBotellasPequenas (pequenas, grandes, total));
 	   }
 	   
 	   
@@ -82,7 +82,7 @@ public class EmbotelladoraTest {
 		   pequenas = 4;
 		   grandes = 4;
 		   total = 0;
-		   assertTrue ("C1.B6", 20 ==  botellas.calculaBotellasPequenas (pequenas, grandes, total));
+		   botellas.calculaBotellasPequenas (pequenas, grandes, total);
 	   }
 	   
 	   /* C2.B1 */

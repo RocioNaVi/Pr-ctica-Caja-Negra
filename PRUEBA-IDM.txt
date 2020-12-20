@@ -58,7 +58,7 @@ C6:  Comprobamos que la entrada es un multiplo de 4 y de 100 y no de 400.
 	B1: año = 2200 -> No es Bisiesto. 
 	B2: año = 1360 -> Es Bisiesto. {Es múltiplo de 4 y no de 100 ni 400}
 
-En test2 se realizan comprobaciones con diferentes valores, para comprobar la crrecta funcionalidad del código.
+En test2 se realizan comprobaciones con diferentes valores, para comprobar la correcta funcionalidad del código.
 
 
 Ejercicio2: Conversión de números romanos a base 10.
@@ -81,13 +81,13 @@ Ejercicio2: Conversión de números romanos a base 10.
 	
 Ejemplos para cada caracterización y bloque:
 La entrada en este caso es un string, por tanto, podremos comprobar si la entrada corresponde a un string (o no).
-Otra caracterización será si el string es un número romano válido (por ejmplo que sus char pertenezcan al alfabeto romano).
+Otra caracterización será si el string es un número romano válido (por ejemplo que sus char pertenezcan al alfabeto romano).
 
 C1: Comprobamos si la entrada es null. 
 	B1: string = null -> Salta la excepción NullPointerException.
 	B2: string = "XX" -> 20
 	 
-C2: Comprobamos que la entrada es un strig válido
+C2: Comprobamos que la entrada es un string válido
 	B1: string = "123" -> Salta la excepción InvalidParameterException. Porque 123 no está en el alfabeto romano.
 	B1.2: string = "e" -> Salta la excepción InvalidParameterException. Porque e no está en el alfabeto romano.
 	B1.3: string = "eyWz" -> Salta la excepción InvalidParameterException. Porque eyWz no está en el alfabeto romano.
@@ -97,7 +97,7 @@ C3: Comprobamos que la entrada es un número romano
 	B1: string = "CM" -> 900 .
 	B1.2: string = "cM" ->  900 .Comprobamos que no importa si está en minúsculas o mayúsculas
 	B1.3: string = "cm" -> 900.
-	B2: string = "IIIX" -> Slata excepción AssertionError. Aunque son letras que pertencen al alfabeto romano, no es un número correcto, porque no se resta de esta froma.
+	B2: string = "IIIX" -> Salta excepción AssertionError. Aunque son letras que pertencen al alfabeto romano, no es un número correcto, porque no se resta de esta froma.
 		El número que queríamos conseguir era "VII".
 	
 C4: Comprobamos que la entrada tiene espacios en blanco.
@@ -126,7 +126,21 @@ Ejercicio 3: Embotelladora:
 	 * 		B3: 
 	 */
 	 
-Se realizan test para cada una de las variables negativas o para el caso de que no haya botellas suficietnes para el líquido.  Se comprueba también un funcionamiento normal en EmbotelladoraTest2
+Ejemplos para cada caracterización y bloque:
+Se realizan test para cada una de las variables negativas o para el caso de que no haya botellas suficietnes para el líquido.
+
+C1: Comprobamos si la entrada es negativa o caso frontera. 
+ 	B1: pequenas = -40 -> Salta la excepción NoSolution porque es un numero negativo.
+	B2: pequenas = 0 -> 0. Si se completa bien con las grandes no tiene por que lanzar excepción. Se rellena el líquido solo con botellas grandes.
+	B3: grandes = -2 -> Salta la excepción NoSolution porque es un numero negativo.
+	B4: grandes = 0 -> 3. ya que hay mas botellas pequeñas que liquido a embotellar. No hay que lanzar excepcion.
+	B5: total = -19 --> Salta la excepción NoSolution porque es un numero negativo.
+	B6: total = 0 --> Salta la excepción NoSolution porque no hay liquido que embotellar.
+C2: Se comprueba el funcionamiento de la practica
+	B1: 4
+	B2: Salta la excepción NoSolution. No hay botellas para rellenar el liquido.
+	
+Se comprueba también un funcionamiento normal en EmbotelladoraTest2
 
 Ejercicio 4: Descuento BlackFriday
 
@@ -143,6 +157,19 @@ Ejercicio 4: Descuento BlackFriday
 	 * 		B3. Fecha no válida por día
 	 */
 	 
-se comprueba que ocurre con cada unas de las variables en el caso frontera, y caso negativo, También de la misma forma se analiza el caso en que la fecha sea válida, o no lo sea debido al mes o el dia. También se realizan test para comprobar el funcionamiento correcto de la misma.
+se comprueba que ocurre con cada unas de las variables en el caso frontera, y caso negativo, También de la misma forma se analiza el caso en que la fecha sea válida, o no lo sea debido al mes o el dia. 
 
+C1: Comprobamos si la entrada es negativa o caso frontera. 
+ 	B1: precioOriginal = -40 -> Salta la excepción IllegalArgumentException.
+	B2: precioOriginal = 0 -> 0. Regalan el producto, no hay descuento que realizar.
+	B3: porcentajeDescuento = -20 --> Salta la excepción IllegalArgumentException.
+	B4: porcentajeDescuento = 20 --> 20. yNo se realiza ningún descuento, pero no se lanza excepción.
+
+C2: Se comprueba el funcionamiento de la practica cambiando las fechas
+	B1: Fecha black friday --> Se puede aplicar el descuento.
+	B2: 29 de octubre --> No se debe realizar ningún descuento.
+	B3: 30 de noviembre --> No se debe realizar ningún descuento.
+	
+También se realizan test para comprobar el funcionamiento correcto de la misma.
+	
 

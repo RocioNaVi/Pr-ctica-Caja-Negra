@@ -12,7 +12,7 @@ public class Embotelladora {
 		int botellas_g;
 		int botellas_p;
 		
-		if (pequenas <= 0 || grandes < 0 || total <= 0)
+		if (pequenas < 0 || grandes < 0 || total <= 0)
 	       {
 			throw new NoSolution ("Parámetros inválidos");
 	       }
